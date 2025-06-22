@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"regexp"
 	"time"
 
 	"github.com/go-chi/chi/v5"
@@ -48,6 +49,11 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "payload inválido", http.StatusBadRequest)
 		return
 	}
+
+	if !isValidCEP(entrada.CEP) { // retorna o erro 422
+		http.Error(w, "invalid zipcode", http.StatusUnprocessableEntity)
+		return
+	}
 	response, err := getCotacao(entrada)
 	if err != nil {
 		http.Error(w, "Falha para recuperar os dados", http.StatusInternalServerError)
@@ -79,4 +85,9 @@ func getCotacao(entrada Entrada) (WeatherResponse, error) {
 		return WeatherResponse{}, err
 	}
 	return response, nil
+}
+
+func isValidCEP(cep string) bool {
+	re := regexp.MustCompile(`^\d{8}$`)
+	return re.MatchString(cep)
 }

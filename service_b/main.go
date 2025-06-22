@@ -89,7 +89,6 @@ func (wh *WeatherHandler) weatherHandler(w http.ResponseWriter, r *http.Request)
 
 	tempC, err := wh.apiClient.getTemperatureByCity(city)
 	if err != nil { // retorna 404 caso a cidade do cep não seja encontrada
-		println(err.Error())
 		http.Error(w, "can not find temperature", http.StatusNotFound)
 		return
 	}
