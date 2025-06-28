@@ -14,7 +14,7 @@ Content-Type: application/json
     "cep": "0100100"
 }
 
-### Resultado Cep Invalido
+### Resultado Cep Inexistente
 POST http://localhost:8000/
 Content-Type: application/json
 

@@ -58,3 +58,19 @@ O código-fonte completo da implementação.
 Documentação explicando como rodar o projeto em ambiente dev.
 Utilize docker/docker-compose para que possamos realizar os testes de sua aplicação.
 ```
+
+## Execução do Lab
+
+Executar o docker compose up
+```
+docker compose up
+```
+## Requisitos:
+Variavel de ambiente WEATHERAPI_KEY com o valor da chave para api.weatherapi.com
+
+## Testes
+O arquivo test.http contem requisções para serem usadas com a extensão "REST Client"
+com 3 testes:
+- Resultado OK
+- CEP no formato invalido
+- CEP não existente

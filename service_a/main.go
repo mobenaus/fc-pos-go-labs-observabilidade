@@ -120,9 +120,9 @@ func (ws *WebServer) handleRequest(w http.ResponseWriter, r *http.Request) {
 	response, err := ws.getTemperatura(ctx, entrada)
 	if err != nil {
 
-		http.Error(w, "Falha para recuperar os dados", http.StatusInternalServerError)
+		http.Error(w, "CEP não encontrado", http.StatusNotFound)
 		span.RecordError(err)
-		span.SetStatus(codes.Error, "Falha para recuperar os dados")
+		span.SetStatus(codes.Error, "CEP não encontrado")
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
