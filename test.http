@@ -1,7 +1,23 @@
-###
+### Resultado OK
 POST http://localhost:8000/
 Content-Type: application/json
 
 {
-    "cep": "89217008"
+    "cep": "01001000"
+}
+
+### Resultado 422
+POST http://localhost:8000/
+Content-Type: application/json
+
+{
+    "cep": "0100100"
+}
+
+### Resultado Cep Invalido
+POST http://localhost:8000/
+Content-Type: application/json
+
+{
+    "cep": "12345678"
 }
