@@ -6,7 +6,7 @@ Content-Type: application/json
     "cep": "01001000"
 }
 
-### Resultado 422
+### Resultado 422 invalid zipcode
 POST http://localhost:8000/
 Content-Type: application/json
 
